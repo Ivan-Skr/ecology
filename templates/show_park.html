@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экология Подмосковья</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Экология Подмосковья</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Главная</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="recycling-points" class="recycling-points-section">
+            <div class="container">
+                <h2>Парк</h2>
+                <p>{{ data.description }}</p>
+                {% if data.phones %}
+                    <p>Телефоны:</p>
+                    <ul>
+                        {% for phone in data.phones %}
+                            <li>{{ phone }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if data.hours %}
+                    <p>Часы работы: {{ data.hours }}</p>
+                {% endif %}
+                <img src="{{ url_for('static', filename='img/img.jpg') }}" alt="Карта">
+            </div>
+        </section>
+
+        <aside class="comments-section">
+            <h3>Комментарии</h3>
+            <form action="{{ url_for('show_park', adress=data.description) }}" method="POST" class="comment-form">
+                <textarea name="comment" placeholder="Введите ваш комментарий" required></textarea>
+                <label for="rating">Оценка:</label>
+                <select name="rating" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button type="submit">Отправить</button>
+            </form>
+            <div class="comments-list">
+                {% if comments %}
+                {% for comment in comments %}
+                <div class="comment">
+                    <p><strong>Пользователь {{ loop.index }}: </strong>{{ comment.text }}</p>
+                </div>
+                {% endfor %}
+                {% else %}
+                    <p>Комментариев пока нет. Будьте первым!</p>
+                {% endif %}
+            </div>
+            <div class="rating">
+                <h3>Средняя оценка: {{ rating|round(2) }} ({{ num_ratings }} оценок)</h3>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Экология Подмосковья. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

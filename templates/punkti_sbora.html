@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экология Подмосковья</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Экология Подмосковья</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{url_for('index')}}">Главная</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="recycling-points" class="recycling-points-section">
+            <div class="container">
+                <h2>Пункты сбора вторсырья</h2>
+                <form method="POST">
+                    <input type="text" name='search' placeholder="Поиск по городу...">
+                    <button type="submit_search">поиск</button>
+                </form>
+                <ul id="points-list">
+                    {% for val in listt %}
+                    <li class="point-item"><a href='{{url_for('show_sbor', adress=val )}}'>{{val}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Экология Подмосковья. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

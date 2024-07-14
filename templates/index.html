@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экология Подмосковья</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Экология Подмосковья</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#news">Новости</a></li>
+                    <li><a href="#projects">Проекты</a></li>
+                    <li><a href="#tips">Советы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="{{ url_for('add_place') }}">Добавить Парк или Пункт Сбора</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="home-section">
+            <div class="container">
+                <h2>Добро пожаловать на сайт, посвященный экологии Подмосковья!</h2>
+                <p>Мы информируем о состоянии окружающей среды и продвигаем экологический образ жизни.</p>
+            </div>
+        </section>
+
+        <section id="news" class="news-section">
+            <div class="container">
+                <h2>Новости</h2>
+                <article>
+                    <h3><a href="https://mosregtoday.ru/news/eco/zhiteljam-podmoskovja-napomnili-o-vrede-sharikov-i-fonarikov-dlja-ekologii/">Жителям Подмосковья напомнили о вреде шариков и фонариков для экологии</a></h3>
+                    <img src="https://api.360.ru/get_resized/pGV97YCmiLZ4wriOxm0-sQiRT3U=/1080x607/filters:rs(fill-down):format(webp)/YXJ0aWNsZXMvaW1hZ2UvMjAyNC83L2xlb24tY29udHJlcmFzLXd1M3Brdm9pbWprLXVuc3BsYXNoLTEuanBn.webp" style="width: 50em;">
+                </article>
+                <article>
+                    <h3><a href="https://riamo.ru/news/obschestvo/zhiteli-podmoskovja-smogut-prisoedinitsja-k-vystavke-natsionalnye-ekotraditsii/">Жители Подмосковья смогут присоединиться к выставке «Национальные экотрадиции»</a></h3>
+                    <img src="https://api.riamo.multiadminka.ru/get_resized/pMpYBOtUd2Rn6Zg3z-nqXr1E8m4=/1920x1080/filters:rs(fill-down):format(webp)/YXJ0aWNsZXMvaW1hZ2UvMjAyNC82L2FydGljbGVzaW1hZ2UyMDI0Njg1NDkwMzAtNnV0dmh6ei5qcGc.webp" style="width: 50em;">
+                </article>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2>Проекты</h2>
+                <article>
+                    <h3><a href="{{url_for('events')}}">Экологические мероприятия</a></h3>
+                </article>
+                <article>
+                    <h3><a href="{{url_for('park')}}">Парки и заповедники</a></h3>
+                </article>
+                <article>
+                    <h3><a href="{{url_for('sbor')}}">Пункты сбора вторсырья</a></h3>
+                </article>
+            </div>
+        </section>
+
+        <section id="tips" class="tips-section">
+            <div class="container">
+                <h2>Полезные советы</h2>
+                <ul>
+                    <li>Совет 1: Используйте многоразовые сумки и бутылки, избегайте одноразового пластика.</li>
+                    <li>Совет 2: Устанавливайте водосберегающие насадки и выключайте воду при чистке зубов и мытье посуды.</li>
+                    <li>Совет 3: Сортируйте отходы на пластик, бумагу, стекло и органику, и сдавайте их в соответствующие пункты переработки.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Контакты</h2>
+                <p>Электронная почта: <a href="mailto:info@ecology-podmoskovye.ru">info@ecology-podmoskovye.ru</a></p>
+                <p>Телефон: +7 (495) 123-45-67</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Экология Подмосковья. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

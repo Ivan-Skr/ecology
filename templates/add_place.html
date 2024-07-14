@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить Парк или Пункт Сбора</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Экология Подмосковья</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Главная</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="add-place-section">
+            <div class="container">
+                <h2>Добавить Парк или Пункт Сбора</h2>
+                <form action="{{ url_for('add_place') }}" method="POST" class="add-place-form">
+                    <label for="name">Название:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="description">Описание:</label>
+                    <textarea id="description" name="description" required></textarea>
+
+                    <label for="phones">Телефоны (через запятую):</label>
+                    <input type="text" id="phones" name="phones">
+
+                    <label for="hours">Часы работы:</label>
+                    <input type="text" id="hours" name="hours">
+
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Экология Подмосковья. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
